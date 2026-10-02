@@ -1,0 +1,80 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: radial-gradient(circle at 50% 10%, #1e293b 0%, #0a0f1d 80%);
+  color: #f8fafc; min-height: 100vh;
+  display: flex; justify-content: center; align-items: center; padding: 16px;
+}
+.app {
+  width: 100%; max-width: 400px;
+  display: flex; flex-direction: column; align-items: center; gap: 14px;
+}
+.header h1 { font-size: 2rem; letter-spacing: 2px; text-align: center; }
+.header p { color: #94a3b8; font-size: 0.85rem; text-align: center; }
+.modes {
+  display: flex; background: #1e293b; padding: 4px; border-radius: 999px; width: 100%;
+}
+.mode-btn {
+  flex: 1; padding: 8px 12px; background: transparent; border: none;
+  color: #94a3b8; font-weight: 600; border-radius: 999px; cursor: pointer; transition: 0.2s;
+}
+.mode-btn.active { background: #2563eb; color: #ffffff; }
+.scoreboard {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; width: 100%;
+}
+.score-card {
+  background: #131d31; border: 1px solid #1e293b; border-radius: 10px; padding: 10px; text-align: center;
+}
+.score-card .label { font-size: 0.7rem; color: #94a3b8; display: block; }
+.score-card .val { font-size: 1.4rem; font-weight: 700; margin-top: 2px; display: block; }
+.score-card.x .val { color: #00f2fe; }
+.score-card.tie .val { color: #facc15; }
+.score-card.o .val { color: #ff2a6d; }
+.turn-badge {
+  background: #131d31; border: 1px solid #1e293b; padding: 6px 18px;
+  border-radius: 999px; font-size: 0.9rem; font-weight: 600;
+}
+.turn-badge.x-turn { border-color: #00f2fe; color: #00f2fe; }
+.turn-badge.o-turn { border-color: #ff2a6d; color: #ff2a6d; }
+.board {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; width: 100%; aspect-ratio: 1 / 1;
+}
+.cell {
+  background: #162238; border: 1px solid #233554; border-radius: 12px;
+  font-size: 2.8rem; font-weight: 800; color: #ffffff; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; transition: 0.15s;
+}
+.cell:hover:not(:disabled) { background: #1d2d4a; border-color: #3b82f6; }
+.cell.x { color: #00f2fe; text-shadow: 0 0 12px rgba(0, 242, 254, 0.4); }
+.cell.o { color: #ff2a6d; text-shadow: 0 0 12px rgba(255, 42, 109, 0.4); }
+.cell.win {
+  border-color: #facc15; box-shadow: 0 0 16px rgba(250, 204, 21, 0.4);
+  animation: pulse 0.8s infinite alternate ease-in-out;
+}
+@keyframes pulse { from { transform: scale(1); } to { transform: scale(1.04); } }
+.actions { display: flex; gap: 8px; width: 100%; }
+.btn {
+  padding: 10px 14px; font-weight: 600; border: none; border-radius: 8px;
+  cursor: pointer; transition: 0.15s;
+}
+.btn.primary { flex: 2; background: #2563eb; color: #ffffff; }
+.btn.primary:hover { background: #1d4ed8; }
+.btn.secondary { flex: 1.5; background: #1e293b; color: #f8fafc; }
+.btn.secondary:hover { background: #334155; }
+.btn.icon-btn { width: 44px; background: #1e293b; font-size: 1.1rem; }
+.modal {
+  position: fixed; inset: 0; background: rgba(10, 15, 29, 0.85);
+  display: none; align-items: center; justify-content: center; padding: 20px;
+}
+.modal.open { display: flex; }
+.modal-box {
+  background: #131d31; border: 1px solid #1e293b; border-radius: 16px;
+  padding: 24px; text-align: center; max-width: 320px; width: 100%;
+}
+.modal-icon { font-size: 2.5rem; margin-bottom: 8px; }
+.modal-box h2 { font-size: 1.4rem; margin-bottom: 16px; }
+.modal-box .btn { width: 100%; }
+@media (max-width: 380px) {
+  .cell { font-size: 2.2rem; }
+  .header h1 { font-size: 1.6rem; }
+}

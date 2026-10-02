@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic-Tac-Toe | VOSC Activity 1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>TIC TAC TOE</h1>
+      <p>Play locally with a friend or challenge the smart AI.</p>
+    </header>
+
+    <div class="modes">
+      <button class="mode-btn active" id="btnPvp">2 Players</button>
+      <button class="mode-btn" id="btnAi">vs AI</button>
+    </div>
+
+    <div class="scoreboard">
+      <div class="score-card x">
+        <span class="label">PLAYER X</span>
+        <span class="val" id="scoreX">0</span>
+      </div>
+      <div class="score-card tie">
+        <span class="label">TIES</span>
+        <span class="val" id="scoreTies">0</span>
+      </div>
+      <div class="score-card o">
+        <span class="label" id="labelO">PLAYER O</span>
+        <span class="val" id="scoreO">0</span>
+      </div>
+    </div>
+
+    <div class="turn-badge x-turn" id="turnBadge">
+      <span id="turnText">Player X's Turn</span>
+    </div>
+
+    <main class="board" id="board">
+      <button class="cell" data-idx="0" aria-label="Square 1"></button>
+      <button class="cell" data-idx="1" aria-label="Square 2"></button>
+      <button class="cell" data-idx="2" aria-label="Square 3"></button>
+      <button class="cell" data-idx="3" aria-label="Square 4"></button>
+      <button class="cell" data-idx="4" aria-label="Square 5"></button>
+      <button class="cell" data-idx="5" aria-label="Square 6"></button>
+      <button class="cell" data-idx="6" aria-label="Square 7"></button>
+      <button class="cell" data-idx="7" aria-label="Square 8"></button>
+      <button class="cell" data-idx="8" aria-label="Square 9"></button>
+    </main>
+
+    <div class="actions">
+      <button class="btn primary" id="btnRestart">Next Round</button>
+      <button class="btn secondary" id="btnReset">Reset Score</button>
+      <button class="btn icon-btn" id="btnSound" title="Toggle Sound">🔊</button>
+    </div>
+  </div>
+
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <div class="modal-icon" id="modalIcon">🏆</div>
+      <h2 id="modalTitle">Player X Wins!</h2>
+      <button class="btn primary" id="btnModalPlay">Play Again</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
